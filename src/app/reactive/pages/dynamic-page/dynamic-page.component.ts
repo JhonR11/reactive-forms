@@ -27,21 +27,22 @@ export class DynamicPageComponent {
     return this.myForm.get('favoriteGames') as FormArray
   }
 
-  addToFavorites(){
-    if ( this.newFavorite.invalid)return
-    const newGame = this.newFavorite.value
+  onAddToFavorites() {
+    if (this.newFavorite.invalid) return;
+    const newGame = this.newFavorite.value;
 
-    this.favoriteGames.push(this.fb.control(newGame, Validators.required))
-    this.newFavorite.reset()
+    this.favoriteGames.push(this.fb.control(newGame, Validators.required));
 
-  }
-  onDeleteFavorite(index:number){
-    this.favoriteGames.removeAt(index)
+    this.newFavorite.reset();
   }
 
-  onSubmit(){
-    this.myForm.markAllAsTouched()
+  onDeleteFavorite(index: number) {
+    this.favoriteGames.removeAt(index);
   }
 
+  onSubmit() {
+    console.log(this.myForm.value);
+    this.myForm.markAllAsTouched();
+  }
   
 }

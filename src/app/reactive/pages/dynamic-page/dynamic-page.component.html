@@ -22,25 +22,27 @@
 
     <!-- Agregar Favorito -->
     <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Agregar</label>
-        <div class="col-sm-9">
+    <label class="col-sm-3 col-form-label">Agregar</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="Agregar favorito"
+          [formControl]="newFavorite"
+          (keydown.enter)="onAddToFavorites()"
+          (keydown.enter)="$event.preventDefault()"
+        />
 
-            <div class="input-group">
-                <input class="form-control"
-                       placeholder="Agregar favorito"|
-                       [formControl]="newFavorite"
-                       (keydown.enter)="addToFavorites()"
-                       (keydown.enter)="$event.preventDefault()">
-
-
-                <button class="btn btn-outline-primary"
-                        type="button"
-                        (click)="addToFavorites()">
-                    Agregar favorito
-                </button>
-            </div>
-        </div>
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          (click)="onAddToFavorites()"
+        >
+          Agregar favorito
+        </button>
+      </div>
     </div>
+  </div>
 
 
     <!-- Lista de Juegos Favoritos -->
